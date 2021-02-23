@@ -154,3 +154,57 @@ getFiles_hj(function (files) {
   return files;
 });
 */
+
+
+
+
+function s3upload() {
+    var files = document.getElementById('fileUpload').files;
+    if (files) 
+    {
+
+        var file = files[0];
+        var fileName = file.name;
+
+        checkAuth(function (isAuthenticated) {
+            client.callFunction('uploadFileToS3', [file, fileName ]).then(() => {
+        
+            console.log("I'm in");
+        
+            });
+        });
+
+
+
+    //   var file = files[0];
+    //   var fileName = file.name;
+    //   var filePath = 'my-first-bucket-path/' + fileName;
+    //   var fileUrl = 'https://' + bucketRegion + '.amazonaws.com/my-    first-bucket/' +  filePath;
+    //   s3.upload({
+    //      Key: filePath,
+    //      Body: file,
+    //      ACL: 'public-read'
+    //      }, function(err, data) {
+    //      if(err) {
+    //      reject('error');
+    //      }
+    //      alert('Successfully Uploaded!');
+    //      }).on('httpUploadProgress', function (progress) {
+    //      var uploaded = parseInt((progress.loaded * 100) / progress.total);
+    //      $("progress").attr('value', uploaded);
+    //    });
+    }
+ };
+
+function uploadFile(file, i) {
+    
+    checkAuth(function (isAuthenticated) {
+    client.callFunction('uploadFileToS3', [file, "afileName", "aType"]).then(() => {
+
+    console.log("I'm in")
+
+  formData.append('upload_preset', 'ujpu6gyk')
+  formData.append('file', file)
+    });
+});
+}
