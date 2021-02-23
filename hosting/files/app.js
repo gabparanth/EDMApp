@@ -190,12 +190,8 @@ function s3upload() {
           // log to console
           // logs wL2dvYWwgbW9yZ...
           console.log(base64String);
-        };
-        
-        reader.readAsDataURL(file)
-
-        reader.onloadend = () => checkAuth(function (isAuthenticated) {
-            client.callFunction('uploadFileToS3', [reader.readAsDataURL(file), fileName ]).then(() => {
+          checkAuth(function (isAuthenticated) {
+            client.callFunction('uploadFileToS3', [base64String, fileName ]).then(() => {
             
             console.log("I'm in");
         
@@ -203,6 +199,11 @@ function s3upload() {
 
 
     });
+
+        };
+        
+        reader.readAsDataURL(file);
+
 
     //   var file = files[0];
     //   var fileName = file.name;
