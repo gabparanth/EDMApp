@@ -1,6 +1,21 @@
 const STITCH_APP_ID = 'edmapp-cyexg';
 const client = stitch.Stitch.initializeDefaultAppClient(STITCH_APP_ID);
 
+function checkAuth(callback) {
+    if (!client.auth.isLoggedIn) {
+        if (client.auth.hasRedirectResult()) {
+            client.auth.handleRedirectResult().then(user => {
+                callback(true);
+            });
+        } else {
+            const credential = new stitch.GoogleRedirectCredential();
+            client.auth.loginWithRedirect(credential);
+        }
+    } else {
+        callback(true);
+    }
+
+}
 
 
 let dropArea = document.getElementById("drop-area")
@@ -81,13 +96,16 @@ function handleFiles(files) {
 // }
 
 function uploadFile(file, i) {
+    
+    checkAuth(function (isAuthenticated) {
     client.callFunction('uploadFileToS3', [file, "afileName", "aType"]).then(() => {
 
-        console.log("I'm in")
+    console.log("I'm in")
 
   formData.append('upload_preset', 'ujpu6gyk')
   formData.append('file', file)
     });
+});
 }
 
 // function uploadFile(file, i) {
