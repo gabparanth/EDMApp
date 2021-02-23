@@ -51,8 +51,8 @@ function getUsername(callback) {
 
 function printUsername(username) {
     console.log("user name = " + username);
-    var user_name = document.getElementById('userName');
-    //user_name.innerHTML = username;
+    var user_name = document.getElementById('user__name');
+    user_name.innerHTML = username;
 }
 
 function printList(files) {
