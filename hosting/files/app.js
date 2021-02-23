@@ -80,8 +80,8 @@ function printList(files) {
 
         // tblUser.innerHTML = cluster.email;
         //var mime_type = file.type;
-        /*
-        switch (mime_type) {
+        
+        switch (file.type) {
             case 'jpg':
                 tblThumbnail.innerHTML = '<img src="' + file.url + '">';
                 break;
@@ -103,10 +103,9 @@ function printList(files) {
             default:
                 tblThumbnail.innerHTML = '<img src="img/generic_file_icon.png">';
         }
-        */
         
+        tblId.innerHTML = file._id;
         tblThumbnail.innerHTML = file.type;
-
         tblName.innerHTML = file.fileName;
         tblOwner.innerHTML = file.owner;
         tblUrl.innerHTML = file.url;
