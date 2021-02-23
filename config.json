@@ -1,7 +1,7 @@
 {
     "app_id": "edmapp-cyexg",
     "config_version": 20200603,
-    "name": "edmapp",
+    "name": "EDMApp",
     "location": "IE",
     "deployment_model": "GLOBAL",
     "security": {},
