@@ -49,9 +49,9 @@ function getUsername(callback) {
     });
 }
 
-function printusername(username) {
-    var userName = document.getElementById('user-name');
-    userName.innerHTML = username;
+function printUsername(username) {
+    var user_name = document.getElementById('user-name');
+    user_name.innerHTML = username;
 }
 
 function printList(files) {
