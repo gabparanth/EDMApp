@@ -110,7 +110,7 @@ function printList(files) {
         tblName.innerHTML = file.fileName;
         tblOwner.innerHTML = file.owner;
         tblUrl.innerHTML = file.url;
-        tblDownlad.innerHTML = '<a download="' + file.fileName + '" href="' + file.url + '" title="Download"><img src="img/download" style="width:32px"></a>';
+        tblDownlad.innerHTML = '<a download="' + file.fileName + '" href="' + file.url + '" title="Download"><img src="img/download_icon.png" style="width:32px"></a>';
         // tblStatus.innerHTML = cluster.whitelistingPolicy;
         // tblWhitelisted.innerHTML = cluster.pausedCluster;
 
