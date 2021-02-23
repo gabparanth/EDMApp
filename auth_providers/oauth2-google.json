@@ -1,0 +1,30 @@
+{
+    "name": "oauth2-google",
+    "type": "oauth2-google",
+    "config": {
+        "clientId": "345425585809-ru08deuo2q8lqr0euegnm5n0u0oku5le.apps.googleusercontent.com"
+    },
+    "secret_config": {
+        "clientSecret": "GoogleOAuthClientSecret"
+    },
+    "disabled": false,
+    "metadata_fields": [
+        {
+            "required": false,
+            "name": "email"
+        },
+        {
+            "required": false,
+            "name": "name"
+        }
+    ],
+    "domain_restrictions": [
+        "mongodb.com",
+        "10gen.com"
+    ],
+    "redirect_uris": [
+        "https://edmapp-cyexg.mongodbstitch.com/index.html",
+        "http://localhost:8080/index.html",
+        "https://stitch-statichosting-prod.s3.amazonaws.com/6034c9a8068bb4097264de95/index.html"
+    ]
+}
