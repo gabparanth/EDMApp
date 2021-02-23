@@ -42,9 +42,7 @@ function getFiles(callback) {
 
 function printList(files) {
 
-
-
-    var table = document.getElementById('fileList');
+    var table = document.getElementById('filesList');
 
     table.innerHTML = `<tr class=table-body>
     <td>
@@ -104,6 +102,7 @@ getFiles(function (files) {
     printList(files);
 });
 
+/*
 function getFiles_hj(callback) {
   checkAuth(function (isAuthenticated) {
     client.callFunction('toto', []).then((files) => {
@@ -111,7 +110,7 @@ function getFiles_hj(callback) {
     });
   });
 }
-
+*/
 /*
 getFiles_hj(function (files) {
   return files;
