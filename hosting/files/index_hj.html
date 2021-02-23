@@ -82,8 +82,9 @@ $(function(){
   };
 
   var filesList = getFiles_hj();
-  var filesTableData = eval(filesList);
-  var filesTable = $.makeTable(filesTableData);
+  //var filesTableData = eval(filesList);
+  //var filesTable = $.makeTable(filesTableData);
+  var filesTable = $.makeTable(filesList);
   $(filesTable).appendTo("#filesList");
 
   console.log(filesList);
