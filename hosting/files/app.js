@@ -134,7 +134,13 @@ function printList(files) {
 
 getFiles(function (files) {
     printList(files);
+<<<<<<< HEAD
+}); 
+
+
+=======
 });
+>>>>>>> f0686c7f09f5e753eab35f2b92e661f0efe4b42f
 
 /*
 function getFiles_hj(callback) {
@@ -149,4 +155,8 @@ function getFiles_hj(callback) {
 getFiles_hj(function (files) {
   return files;
 });
+<<<<<<< HEAD
 */
+=======
+*/
+>>>>>>> f0686c7f09f5e753eab35f2b92e661f0efe4b42f
