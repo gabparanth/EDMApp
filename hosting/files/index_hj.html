@@ -63,13 +63,16 @@
 jQuery(document).ready(function(){
   //alert("jQuery est prêt !");
 
-  $.makeTable = function (mydata) {
+  var filesList = getFiles_hj();
+  var filesTableData = eval(filesList);
+
+  $.makeTable = function (filesList) {
     var table = $('<table border=1>');
     var tblHeader = "<tr>";
-    for (var k in mydata[0]) tblHeader += "<th>" + k + "</th>";
+    for (var k in filesList[0]) tblHeader += "<th>" + k + "</th>";
     tblHeader += "</tr>";
     $(tblHeader).appendTo(table);
-    $.each(mydata, function (index, value) {
+    $.each(filesList, function (index, value) {
         var TableRow = "<tr>";
         $.each(value, function (key, val) {
             TableRow += "<td>" + val + "</td>";
@@ -80,9 +83,6 @@ jQuery(document).ready(function(){
     return ($(table));
   };
 
-  var filesList = getFiles_hj();
-
-  var filesTableData = eval(filesList);
   var filesTable = $.makeTable(filesTableData);
   $(filesTable).appendTo("#filesList");
 
