@@ -1,4 +1,4 @@
-exports = function(base64EncodedImage, fileName, fileType) {
+exports = function(base64EncodedImage, fileName) {
     // Convert the base64 encoded image string to a BSON Binary object
     const binaryImageData = BSON.Binary.fromBase64(base64EncodedImage, 0);
     // Instantiate an S3 service client
