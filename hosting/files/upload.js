@@ -83,6 +83,7 @@ function previewFile(file) {
 function uploadFile(file, i) {
     client.callFunction('uploadFileToS3', [file, "afileName", "aType"]).then(() => {
 
+        console.log("I'm in")
 
   formData.append('upload_preset', 'ujpu6gyk')
   formData.append('file', file)
