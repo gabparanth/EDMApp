@@ -83,25 +83,25 @@ function printList(files) {
         
         switch (file.type) {
             case 'jpg':
-                tblThumbnail.innerHTML = '<img src="' + file.url + '">';
+                tblThumbnail.innerHTML = '<img src="' + file.url + '" style="height:50px;">';
                 break;
             case 'png':
-                tblThumbnail.innerHTML = '<img src="' + file.url + '">';
+                tblThumbnail.innerHTML = '<img src="' + file.url + '" style="height:50px;">';
                 break;
             case 'jpeg':
-                tblThumbnail.innerHTML = '<img src="' + file.url + '">';
+                tblThumbnail.innerHTML = '<img src="' + file.url + '" style="height:50px;">';
                 break;
             case 'gif':
-                tblThumbnail.innerHTML = '<img src="' + file.url + '">';
+                tblThumbnail.innerHTML = '<img src="' + file.url + '" style="height:50px;">';
                 break;
             case 'pdf':
-                tblThumbnail.innerHTML = '<img src="img/pdf_icon.png">';
+                tblThumbnail.innerHTML = '<img src="img/pdf_icon.png" style="width:32px;">';
                 break;
             case 'doc':
-                tblThumbnail.innerHTML = '<img src="img/msword_icon.png">';
+                tblThumbnail.innerHTML = '<img src="img/msword_icon.png" style="width:32px;">';
                 break;
             default:
-                tblThumbnail.innerHTML = '<img src="img/generic_file_icon.png">';
+                tblThumbnail.innerHTML = '<img src="img/generic_file_icon.png" style="width:32px;">';
         }
         
         tblId.innerHTML = file._id;
