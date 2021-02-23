@@ -7,7 +7,7 @@
     "secret_config": {
         "clientSecret": "GoogleOAuthClientSecret"
     },
-    "disabled": false,
+    "disabled": true,
     "metadata_fields": [
         {
             "required": false,
