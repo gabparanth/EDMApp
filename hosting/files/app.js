@@ -105,7 +105,7 @@ function printList(files) {
         }
         
         tblId.innerHTML = file._id;
-        tblThumbnail.innerHTML = file.type;
+        //tblThumbnail.innerHTML = file.type;
         tblName.innerHTML = file.fileName;
         tblOwner.innerHTML = file.owner;
         tblUrl.innerHTML = file.url;
