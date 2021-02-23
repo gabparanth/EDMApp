@@ -192,15 +192,15 @@ function s3upload() {
           console.log(base64String);
         };
         
-        reader.readAsDataURL(file).then(()=>{
+        reader.readAsDataURL(file)
 
-        checkAuth(function (isAuthenticated) {
+        reader.onloadend = () => checkAuth(function (isAuthenticated) {
             client.callFunction('uploadFileToS3', [reader.readAsDataURL(file), fileName ]).then(() => {
             
             console.log("I'm in");
         
             });
-        });
+
 
     });
 
