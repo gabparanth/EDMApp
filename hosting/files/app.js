@@ -79,7 +79,7 @@ function printList(files) {
         // var tblEditconfiguration = document.createElement('td');
 
         // tblUser.innerHTML = cluster.email;
-        var mime_type = file.type;
+        //var mime_type = file.type;
         /*
         switch (mime_type) {
             case 'jpg':
@@ -104,7 +104,8 @@ function printList(files) {
                 tblThumbnail.innerHTML = '<img src="img/generic_file_icon.png">';
         }
         */
-       tblThumbnail.innerHTML = file.type;
+        
+        tblThumbnail.innerHTML = file.type;
 
         tblName.innerHTML = file.fileName;
         tblOwner.innerHTML = file.owner;
@@ -150,8 +151,4 @@ function getFiles_hj(callback) {
 getFiles_hj(function (files) {
   return files;
 });
-<<<<<<< HEAD
 */
-=======
-*/
->>>>>>> f0686c7f09f5e753eab35f2b92e661f0efe4b42f
