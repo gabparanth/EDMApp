@@ -176,11 +176,25 @@ function s3upload() {
     if (files) 
     {
 
-        var file = getBase64(files[0]);
+        var file = files[0];
         var fileName = file.name;
 
+        const reader = new FileReader();
+        reader.onloadend = () => {
+          // use a regex to remove data url part
+          const base64String = reader.result
+            .replace("data:", "")
+            .replace(/^.+,/, "");
+    
+          // log to console
+          // logs wL2dvYWwgbW9yZ...
+          console.log(base64String);
+        };
+        
+
+
         checkAuth(function (isAuthenticated) {
-            client.callFunction('uploadFileToS3', [file, fileName ]).then(() => {
+            client.callFunction('uploadFileToS3', [reader.readAsDataURL(file), fileName ]).then(() => {
             
             console.log("I'm in");
         
