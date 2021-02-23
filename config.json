@@ -1,7 +1,7 @@
 {
     "app_id": "edmapp-cyexg",
     "config_version": 20200603,
-    "name": "ecom",
+    "name": "edmapp",
     "location": "IE",
     "deployment_model": "GLOBAL",
     "security": {},
