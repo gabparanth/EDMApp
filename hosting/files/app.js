@@ -68,6 +68,7 @@ function printList(files) {
         row.setAttribute('class', 'table-body');
         // var tblUser = document.createElement('td');
         var tblId = document.createElement('td');
+        var tblThumbnail = document.createElement('td');
         var tblName = document.createElement('td');
         var tblOwner = document.createElement('td');
         var tblUrl = document.createElement('td');
@@ -78,7 +79,32 @@ function printList(files) {
         // var tblEditconfiguration = document.createElement('td');
 
         // tblUser.innerHTML = cluster.email;
-        tblId.innerHTML = file._id;
+        var mime_type = file.type;
+
+        switch (mime_type) {
+            case 'jpg':
+                tblThumbnail.innerHTML = '<img src="' + file.url + '">';
+                break;
+            case 'png':
+                tblThumbnail.innerHTML = '<img src="' + file.url + '">';
+                break;
+            case 'jpeg':
+                tblThumbnail.innerHTML = '<img src="' + file.url + '">';
+                break;
+            case 'gif':
+                tblThumbnail.innerHTML = '<img src="' + file.url + '">';
+                break;
+            case 'pdf':
+                tblThumbnail.innerHTML = '<img src="img/pdf_icon.png">';
+                break;
+            case 'doc':
+                tblThumbnail.innerHTML = '<img src="img/msword_icon.png">';
+                break;
+            default:
+                tblThumbnail.innerHTML = '<img src="img/generic_file_icon.png">';
+        }
+
+
         tblName.innerHTML = file.fileName;
         tblOwner.innerHTML = file.owner;
         tblUrl.innerHTML = file.url;
@@ -93,6 +119,7 @@ function printList(files) {
 
         // row.appendChild(tblUser);
         row.appendChild(tblId);
+        row.appendChild(tblThumbnail);
         row.appendChild(tblName);
         row.appendChild(tblOwner);
         row.appendChild(tblUrl);
