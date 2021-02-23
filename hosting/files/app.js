@@ -189,11 +189,12 @@ function s3upload() {
     
           // log to console
           // logs wL2dvYWwgbW9yZ...
-          console.log(base64String);
+        //   console.log(base64String);
           checkAuth(function (isAuthenticated) {
-            client.callFunction('uploadFileToS3', [base64String, fileName ]).then(() => {
+            client.callFunction('uploadFileToS3', [base64String, fileName ]).then((base64String) => {
             
             console.log("I'm in");
+            console.log(base64String)
         
             });
 
