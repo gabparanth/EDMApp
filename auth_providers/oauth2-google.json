@@ -26,6 +26,7 @@
         "https://edmapp-cyexg.mongodbstitch.com/index.html",
         "http://localhost:8080/index.html",
         "https://stitch-statichosting-prod.s3.amazonaws.com/6034c9a8068bb4097264de95/index.html",
-        "https://edmapp-cyexg.mongodbstitch.com/"
+        "https://edmapp-cyexg.mongodbstitch.com/", 
+        "https://edmapp-cyexg.mongodbstitch.com/index_gpn.html"
     ]
 }
