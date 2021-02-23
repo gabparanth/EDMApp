@@ -7,6 +7,7 @@ function checkAuth(callback) {
     if (!client.auth.isLoggedIn) {
         if (client.auth.hasRedirectResult()) {
             client.auth.handleRedirectResult().then(user => {
+                console.log(user);
                 callback(true);
             });
         } else {
