@@ -163,12 +163,12 @@ function s3upload() {
     if (files) 
     {
 
-        var file = files[0];
+        var file = btoa(files[0]);
         var fileName = file.name;
 
         checkAuth(function (isAuthenticated) {
             client.callFunction('uploadFileToS3', [file, fileName ]).then(() => {
-        
+            
             console.log("I'm in");
         
             });
