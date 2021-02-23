@@ -13,7 +13,7 @@ function checkAuth(callback) {
             client.auth.loginWithRedirect(credential);
         }
     } else {
-        callback(true)
+        callback(true);
     }
 
 }
@@ -26,3 +26,6 @@ function TestCheckAuth(){
         });
     });
 }
+
+
+TestCheckAuth();
