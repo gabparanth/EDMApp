@@ -80,7 +80,12 @@ function previewFile(file) {
   }
 }
 
-
+function uploadFile(file, i) {
+    client.callFunction('uploadFileToS3', [file, "afileName", "aType"]).then(() => {
+        console.log();
+        callback();
+    });
+}
 
 // function uploadFile(file, i) {
 // //   var url = 'https://api.cloudinary.com/v1_1/joezimim007/image/upload'
