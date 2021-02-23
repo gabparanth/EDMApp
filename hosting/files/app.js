@@ -33,16 +33,28 @@ function checkAuth(callback) {
 
 function getFiles(callback) {
     checkAuth(function (isAuthenticated) {
-    client.callFunction('toto', []).then((files) => {
-        console.log(client);
-        console.log(files);
-        callback(files);
+        client.callFunction('toto', []).then((files) => {
+            //console.log(client);
+            console.log(files);
+            callback(files);
+        });
     });
-});
+}
+
+function getUsername(callback) {
+    checkAuth(function (isAuthenticated) {
+        console.log(client);
+        var username = client.auth.currentUser.profile.data.name;
+        callback(username);
+    });
+}
+
+function printusername(username) {
+    var userName = document.getElementById('user-name');
+    userName.innerHTML = username;
 }
 
 function printList(files) {
-
     var table = document.getElementById('filesList');
 /*
     table.innerHTML = `<tr class=table-body>
@@ -136,7 +148,9 @@ function printList(files) {
 }
 
 
-
+getUsername(function (username) {
+    printUsername(username);
+});
 getFiles(function (files) {
     printList(files);
 });
