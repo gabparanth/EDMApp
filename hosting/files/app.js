@@ -43,7 +43,7 @@ function getFiles(callback) {
 function printList(files) {
 
     var table = document.getElementById('filesList');
-
+/*
     table.innerHTML = `<tr class=table-body>
     <td>
       File Name
@@ -61,13 +61,16 @@ function printList(files) {
               
     </td>
   </tr>`;
+  */
 
     files.forEach((file) => {
         var row = document.createElement('tr');
         row.setAttribute('class', 'table-body');
         // var tblUser = document.createElement('td');
+        var tblId = document.createElement('td');
         var tblName = document.createElement('td');
         var tblOwner = document.createElement('td');
+        var tblUrl = document.createElement('td');
         // var tblDelete = document.createElement('td');
         // var tblWhitelisted = document.createElement('td');
 
@@ -75,8 +78,10 @@ function printList(files) {
         // var tblEditconfiguration = document.createElement('td');
 
         // tblUser.innerHTML = cluster.email;
+        tblId.innerHTML = file._id;
         tblName.innerHTML = file.fileName;
         tblOwner.innerHTML = file.owner;
+        tblUrl.innerHTML = file.url;
         // tblStatus.innerHTML = cluster.whitelistingPolicy;
         // tblWhitelisted.innerHTML = cluster.pausedCluster;
 
@@ -87,8 +92,10 @@ function printList(files) {
         // tblEditconfiguration.appendChild(editConfigurationButton);
 
         // row.appendChild(tblUser);
+        row.appendChild(tblId);
         row.appendChild(tblName);
         row.appendChild(tblOwner);
+        row.appendChild(tblUrl);
         // row.appendChild(tblStatus);
         // row.appendChild(tblEditconfiguration);
 
