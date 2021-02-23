@@ -24,7 +24,7 @@ function s3upload() {
         checkAuth(function (isAuthenticated) {
             client.callFunction('uploadFileToS3', [file, fileName ]).then(() => {
         
-            console.log("I'm in")
+            console.log("I'm in");
         
             });
         });
