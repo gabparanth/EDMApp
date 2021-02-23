@@ -28,11 +28,11 @@ function TestCheckAuth(){
 }
 
 
-//TestCheckAuth();
+TestCheckAuth();
 
-function getFiles(callback) {
-    client.callFunction('toto', []).then((files) => {
-        console.log(files);
-        callback(files);
-    });
-}
+// function getFiles(callback) {
+//     client.callFunction('toto', []).then((files) => {
+//         console.log(files);
+//         callback(files);
+//     });
+// }
