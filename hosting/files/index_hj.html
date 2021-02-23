@@ -45,6 +45,17 @@
 
   <!-- Page Content -->
   <div class="container">
+    <div>
+      <div class="input-group my-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+        </div>
+        <div class="custom-file">
+          <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+          <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+        </div>
+      </div>
+    </div>
     <div class="row">
       <table id="filesList" class="table">
         <thead>
@@ -54,6 +65,7 @@
             <th scope="col">File Name</th>
             <th scope="col">File owner</th>
             <th scope="col">URL</th>
+            <th scope="col">Download</th>
           </tr>
         </thead>
       </table>
