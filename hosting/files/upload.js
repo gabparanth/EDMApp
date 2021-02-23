@@ -1,93 +1,111 @@
 const STITCH_APP_ID = 'edmapp-cyexg';
 const client = stitch.Stitch.initializeDefaultAppClient(STITCH_APP_ID);
 
+function checkAuth(callback) {
+    if (!client.auth.isLoggedIn) {
+        if (client.auth.hasRedirectResult()) {
+            client.auth.handleRedirectResult().then(user => {
+                callback(true);
+            });
+        } else {
+            const credential = new stitch.GoogleRedirectCredential();
+            client.auth.loginWithRedirect(credential);
+        }
+    } else {
+        callback(true);
+    }
+
+}
 
 
 let dropArea = document.getElementById("drop-area")
 
 
-// Prevent default drag behaviors
-;['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
-  dropArea.addEventListener(eventName, preventDefaults, false)   
-  document.body.addEventListener(eventName, preventDefaults, false)
-})
+// // Prevent default drag behaviors
+// ;['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+//   dropArea.addEventListener(eventName, preventDefaults, false)   
+//   document.body.addEventListener(eventName, preventDefaults, false)
+// })
 
-// Highlight drop area when item is dragged over it
-;['dragenter', 'dragover'].forEach(eventName => {
-  dropArea.addEventListener(eventName, highlight, false)
-})
+// // Highlight drop area when item is dragged over it
+// ;['dragenter', 'dragover'].forEach(eventName => {
+//   dropArea.addEventListener(eventName, highlight, false)
+// })
 
-;['dragleave', 'drop'].forEach(eventName => {
-  dropArea.addEventListener(eventName, unhighlight, false)
-})
+// ;['dragleave', 'drop'].forEach(eventName => {
+//   dropArea.addEventListener(eventName, unhighlight, false)
+// })
 
-// Handle dropped files
-dropArea.addEventListener('drop', handleDrop, false)
+// // Handle dropped files
+// dropArea.addEventListener('drop', handleDrop, false)
 
-function preventDefaults (e) {
-  e.preventDefault()
-  e.stopPropagation()
-}
+// function preventDefaults (e) {
+//   e.preventDefault()
+//   e.stopPropagation()
+// }
 
-function highlight(e) {
-  dropArea.classList.add('highlight')
-}
+// function highlight(e) {
+//   dropArea.classList.add('highlight')
+// }
 
-function unhighlight(e) {
-  dropArea.classList.remove('active')
-}
+// function unhighlight(e) {
+//   dropArea.classList.remove('active')
+// }
 
-function handleDrop(e) {
-  var dt = e.dataTransfer
-  var files = dt.files
+// function handleDrop(e) {
+//   var dt = e.dataTransfer
+//   var files = dt.files
 
-  handleFiles(files)
-}
+//   handleFiles(files)
+// }
 
-let uploadProgress = []
-let progressBar = document.getElementById('progress-bar')
+// let uploadProgress = []
+// let progressBar = document.getElementById('progress-bar')
 
-function initializeProgress(numFiles) {
-  progressBar.value = 0
-  uploadProgress = []
+// function initializeProgress(numFiles) {
+//   progressBar.value = 0
+//   uploadProgress = []
 
-  for(let i = numFiles; i > 0; i--) {
-    uploadProgress.push(0)
-  }
-}
+//   for(let i = numFiles; i > 0; i--) {
+//     uploadProgress.push(0)
+//   }
+// }
 
-function updateProgress(fileNumber, percent) {
-  uploadProgress[fileNumber] = percent
-  let total = uploadProgress.reduce((tot, curr) => tot + curr, 0) / uploadProgress.length
-  console.debug('update', fileNumber, percent, total)
-  progressBar.value = total
-}
+// function updateProgress(fileNumber, percent) {
+//   uploadProgress[fileNumber] = percent
+//   let total = uploadProgress.reduce((tot, curr) => tot + curr, 0) / uploadProgress.length
+//   console.debug('update', fileNumber, percent, total)
+//   progressBar.value = total
+// }
 
 function handleFiles(files) {
   files = [...files]
-  initializeProgress(files.length)
+//   initializeProgress(files.length)
   files.forEach(uploadFile)
-  files.forEach(previewFile)
+//   files.forEach(previewFile)
 }
 
-function previewFile(file) {
-  let reader = new FileReader()
-  reader.readAsDataURL(file)
-  reader.onloadend = function() {
-    let img = document.createElement('img')
-    img.src = reader.result
-    document.getElementById('gallery').appendChild(img)
-  }
-}
+// function previewFile(file) {
+//   let reader = new FileReader()
+//   reader.readAsDataURL(file)
+//   reader.onloadend = function() {
+//     let img = document.createElement('img')
+//     img.src = reader.result
+//     document.getElementById('gallery').appendChild(img)
+//   }
+// }
 
 function uploadFile(file, i) {
+    
+    checkAuth(function (isAuthenticated) {
     client.callFunction('uploadFileToS3', [file, "afileName", "aType"]).then(() => {
 
-        console.log("I'm in")
+    console.log("I'm in")
 
   formData.append('upload_preset', 'ujpu6gyk')
   formData.append('file', file)
     });
+});
 }
 
 // function uploadFile(file, i) {
