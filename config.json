@@ -1,5 +1,5 @@
 {
-    "app_id": "ecom-xwqkg",
+    "app_id": "edmapp-cyexg",
     "config_version": 20200603,
     "name": "ecom",
     "location": "IE",
@@ -7,7 +7,7 @@
     "security": {},
     "hosting": {
         "enabled": true,
-        "app_default_domain": "ecom-xwqkg.mongodbstitch.com"
+        "app_default_domain": "edmapp-cyexg.mongodbstitch.com"
     },
     "custom_user_data_config": {
         "enabled": false
