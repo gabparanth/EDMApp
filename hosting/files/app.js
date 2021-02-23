@@ -2,9 +2,6 @@ const STITCH_APP_ID = 'edmapp-cyexg'
 const client = stitch.Stitch.initializeDefaultAppClient(STITCH_APP_ID);
 
 
-const client = stitch.Stitch.initializeDefaultAppClient(STITCH_APP_ID);
-
-
 function checkAuth(callback) {
     if (!client.auth.isLoggedIn) {
         if (client.auth.hasRedirectResult()) {
