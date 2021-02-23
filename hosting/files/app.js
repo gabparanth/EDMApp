@@ -102,6 +102,7 @@ function printList(files) {
 
 getFiles(function (files) {
     printList(files);
+<<<<<<< HEAD
 }); 
 
 
@@ -131,3 +132,20 @@ function dropHandler(ev) {
       }
     }
   }
+=======
+});
+
+function getFiles_hj(callback) {
+  checkAuth(function (isAuthenticated) {
+    client.callFunction('toto', []).then((files) => {
+      callback(files);
+    });
+  });
+}
+
+/*
+getFiles_hj(function (files) {
+  return files;
+});
+*/
+>>>>>>> cb77ad89825997b6c9643cfc99ecdda5a2346fee
