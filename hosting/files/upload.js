@@ -1,21 +1,17 @@
 const STITCH_APP_ID = 'edmapp-cyexg';
 const client = stitch.Stitch.initializeDefaultAppClient(STITCH_APP_ID);
 
-function checkAuth(callback) {
-    if (!client.auth.isLoggedIn) {
-        if (client.auth.hasRedirectResult()) {
-            client.auth.handleRedirectResult().then(user => {
-                callback(true);
-            });
-        } else {
-            const credential = new stitch.GoogleRedirectCredential();
-            client.auth.loginWithRedirect(credential);
-        }
-    } else {
-        callback(true);
-    }
 
-}
+// auth anonymously for testing only 
+
+function checkAuth(callback) {
+    client.auth
+      .loginWithCredential(new stitch.AnonymousCredential())
+      .then((user) => {
+        callback(true);
+      });
+  }
+
 
 function s3upload() {
     var files = document.getElementById('fileUpload').files;
