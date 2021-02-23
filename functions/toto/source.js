@@ -10,7 +10,7 @@ exports = async function()
   // console.log(emailAddressMongo);
   
   var result = collection.find({}).toArray();
-  
+  console.log(result);
   
 return result;
 };
