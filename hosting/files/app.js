@@ -103,3 +103,17 @@ function printList(files) {
 getFiles(function (files) {
     printList(files);
 });
+
+function getFiles_hj(callback) {
+  checkAuth(function (isAuthenticated) {
+    client.callFunction('toto', []).then((files) => {
+      callback(files);
+    });
+  });
+}
+
+/*
+getFiles_hj(function (files) {
+  return files;
+});
+*/
