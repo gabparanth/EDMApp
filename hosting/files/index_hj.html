@@ -62,8 +62,68 @@
 <script>
 jQuery(document).ready(function(){
   //alert("jQuery est prêt !");
+
+  $.makeTable = function (mydata) {
+    var table = $('<table border=1>');
+    var tblHeader = "<tr>";
+    for (var k in mydata[0]) tblHeader += "<th>" + k + "</th>";
+    tblHeader += "</tr>";
+    $(tblHeader).appendTo(table);
+    $.each(mydata, function (index, value) {
+        var TableRow = "<tr>";
+        $.each(value, function (key, val) {
+            TableRow += "<td>" + val + "</td>";
+        });
+        TableRow += "</tr>";
+        $(table).append(TableRow);
+    });
+    return ($(table));
+  };
+
   var filesList = getFiles_hj();
+
+  var filesTableData = eval(filesList);
+  var filesTable = $.makeTable(filesTableData);
+  $(filesTable).appendTo("#filesList");
+
   console.log(filesList);
+  /*
+  [
+    {
+      "_id":{
+        "$oid":"6034e084e5b34688b2d020b0"
+      },
+      "fileName":"myPdf.pdf",
+      "uploader":"tata",
+      "owner":"myCompany",
+      "scoring":{
+        "$numberInt":"5"
+      },
+      "metadata-OCR":"some stuff",
+      "lastUpdated":{
+        "$date":{
+          "$numberLong":"1612220400000"
+        }
+      },
+      "url":"an Url ",
+      "criticity":"low",
+      "commentaire":[
+        {
+          "ts":{
+            "$date":{
+              "$numberLong":"1577833200000"
+            }
+          },
+          "from":"tata",
+          "text":"this is amazing"
+        }
+      ],
+      "type":"pdf"
+    },
+    ...
+  ]
+  */
   //$( "#filesList" ).append( filesList );
+
 });
 </script>
