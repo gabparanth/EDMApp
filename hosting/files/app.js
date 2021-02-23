@@ -203,19 +203,21 @@ function s3upload() {
     
           // log to console
           // logs wL2dvYWwgbW9yZ...
-          console.log(base64String);
-        };
-        
-        reader.readAsDataURL(file)
-
-        checkAuth(function (isAuthenticated) {
-            client.callFunction('uploadFileToS3', [base64String, fileName ]).then(() => {
+        //   console.log(base64String);
+          checkAuth(function (isAuthenticated) {
+            client.callFunction('uploadFileToS3', [base64String, fileName ]).then((base64String) => {
             
             console.log("I'm in");
+            console.log(base64String)
         
             });
-        });
 
+
+    });
+
+        };
+        
+        reader.readAsDataURL(file);
 
 
     //   var file = files[0];
