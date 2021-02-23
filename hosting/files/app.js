@@ -7,7 +7,6 @@ function checkAuth(callback) {
     if (!client.auth.isLoggedIn) {
         if (client.auth.hasRedirectResult()) {
             client.auth.handleRedirectResult().then(user => {
-                console.log(user);
                 callback(true);
             });
         } else {
@@ -35,6 +34,7 @@ function checkAuth(callback) {
 function getFiles(callback) {
     checkAuth(function (isAuthenticated) {
     client.callFunction('toto', []).then((files) => {
+        console.log(client);
         console.log(files);
         callback(files);
     });
