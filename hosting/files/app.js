@@ -72,6 +72,7 @@ function printList(files) {
         var tblName = document.createElement('td');
         var tblOwner = document.createElement('td');
         var tblUrl = document.createElement('td');
+        var tblDownlad = document.createElement('td');
         // var tblDelete = document.createElement('td');
         // var tblWhitelisted = document.createElement('td');
 
@@ -109,6 +110,7 @@ function printList(files) {
         tblName.innerHTML = file.fileName;
         tblOwner.innerHTML = file.owner;
         tblUrl.innerHTML = file.url;
+        tblDownlad.innerHTML = '<a download="' + file.fileName + '" href="' + file.url + '" title="Download"><img src="img/download" style="width:32px"></a>';
         // tblStatus.innerHTML = cluster.whitelistingPolicy;
         // tblWhitelisted.innerHTML = cluster.pausedCluster;
 
@@ -124,6 +126,7 @@ function printList(files) {
         row.appendChild(tblName);
         row.appendChild(tblOwner);
         row.appendChild(tblUrl);
+        row.appendChild(tblDownlad);
         // row.appendChild(tblStatus);
         // row.appendChild(tblEditconfiguration);
 
