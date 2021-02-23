@@ -50,8 +50,10 @@ function getUsername(callback) {
 }
 
 function printUsername(username) {
-    var user_name = document.getElementById('user-name');
-    user_name.innerHTML = username;
+    var user_name = document.getElementById('userName');
+    var span = document.createElement('span');
+    span.innerHTML = username;
+    user_name.appendChild(span);
 }
 
 function printList(files) {
